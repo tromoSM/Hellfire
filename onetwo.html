@@ -1,8 +1,165 @@
+
 <!DOCTYPE html>
 
 <header> Hellfire Font official Website 
     
 </header><title>Hellfire by tromoSM</title>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="Warning_seuguro" id="warningBox">
+    <span style="font-family: SF Pro Display; font-weight: 300;">This site is outdated. <br>Visit new site:</span>
+    <span>
+               <a style="color: #a7caff; text-decoration: underline;" href="https://tromosm.github.io/Hellfire/Hellfire_landing_Modern">1.6</a>
+      or
+      <a style="color: #a7caff; text-decoration: underline;" href="https://tromosm.github.io/Hellfire/Hellfire%201.5">1.5</a>
+    </span>
+       <button class="close-btn" onclick="hideWarning()"></button>
+                            <button class="snt" onclick="toggleWarning()"></button>
+  </div>
+</div>
+
+        <header>DEVELOPER HELLFIRE</header>
+    <title>Hellfire by tromoSM</title>
+
+<script>
+let expanded = false;
+
+function hideWarning() {
+    let warningBox = document.getElementById("warningBox");
+    warningBox.style.transform = "translateX(-50%) translateY(120vh)"; // Slide down
+    warningBox.style.opacity = "0"; // Fade out
+    setTimeout(() => {
+        warningBox.style.display = "none"; // Hide after animation
+    }, 500);
+}
+
+function toggleWarning() {
+    let warningBox = document.getElementById("warningBox");
+    let button = document.querySelector(".snt");
+
+    if (!expanded) {
+        warningBox.style.maxHeight = "100vh"; // Expand
+        warningBox.style.transform = "translateX(-50%) translateY(0vh)"; // Move up
+
+        // Add the warning description dynamically
+        let warningDescription = document.querySelector(".warning-description");
+        if (!warningDescription) {
+            warningDescription = document.createElement("div");
+            warningDescription.className = "warning-description";
+            warningDescription.innerHTML = `
+        <strong>1. Slow Download Speeds</strong><br> Experiences slow download speeds due to outdated or inefficient server infrastructure. This can lead to long loading times, frustrating users and driving them away. It's essential to switch to faster, more reliable servers or implement CDN (Content Delivery Network) to optimize performance globally.<br><br>
+
+<strong>2. Outdated Font Versions (Web)</strong><br> The font choices on our site appear outdated and unprofessional. Old web fonts can make the site feel less modern and harder to read. By upgrading to newer, more refined web font versions, the typography will look sleek, polished, and aligned with current design standards.<br><br>
+
+<strong>3. Poor UI and UX</strong><br> Our site's user interface (UI) and user experience (UX) are lacking in key areas. With a cluttered layout, unintuitive navigation, and non-responsive design, users find it hard to engage with the content. Upgrading to a modern, streamlined design with clear navigation and responsive elements will significantly improve user retention and satisfaction.<br><br>
+
+<strong>4. Lack of JavaScript</strong><br> The absence of JavaScript severely limits the interactivity and dynamic behavior of the site. Without JS, features like interactive forms, animations, and dynamic content are unavailable, making the site feel outdated and static. Implementing modern JavaScript frameworks (e.g., React, Vue.js) will provide engaging functionality and a smoother experience.<br><br>
+
+<strong>5. Lack of Navigation</strong><br> A poor or missing navigation system makes it difficult for users to find important content on our site. Clear, structured, and easily accessible menus and links are crucial for guiding users. Adding an intuitive navigation system will help users find what they're looking for quickly and improve overall site usability.<br><br>
+
+<strong>6. Poor Image Quality</strong><br> Our site’s images lack clarity and quality, making it look unprofessional. Low-resolution or poorly optimized images slow down the site and diminish the visual appeal. Replacing these with high-quality, optimized images will improve the site's aesthetic and performance.<br><br>
+
+<strong>7. Missing Legacy Fonts</strong><br> Our site doesn’t utilize modern legacy fonts that align with contemporary design practices. Incorporating new legacy fonts with better readability, versatility, and design compatibility will make the site look more professional, polished, and engaging to visitors.<br><br>
+            
+
+
+<br>
+<br>
+                `;
+            warningBox.appendChild(warningDescription);
+        }
+
+        setTimeout(() => { warningDescription.style.opacity = "1"; }, 100); // Fade in
+        button.textContent = "";
+    } else {
+        warningBox.style.maxHeight = "90vh"; // Collapse
+        warningBox.style.transform = "translateX(-50%) translateY(90vh)"; // Move down
+
+        let warningDescription = document.querySelector(".warning-description");
+        if (warningDescription) {
+            warningDescription.style.opacity = "0"; // Fade out
+            setTimeout(() => { 
+                warningDescription.remove(); // Remove after animation
+            }, 300);
+        }
+
+        button.textContent = "";
+    }
+
+    expanded = !expanded;
+}
+</script>
+
+<style>
+    .warning-description{
+        font-family: SF Pro;
+        font-weight: 300;
+    }
+.snt {
+    background-color: #28C940;
+    border: none;
+    padding: 7px;
+    border-radius: 50px;
+    transform: translateY(-23px);
+    outline: none;
+    cursor: pointer;
+}
+.snt:hover{
+    background-color: #0aa822;
+
+}
+.close-btn {
+    border: none;
+    padding: 7px;
+    margin-left: 20px;
+    border-radius: 50px;
+    transform: translateY(-23px);
+    outline: none;
+    background-color: rgb(255, 75, 75);
+    cursor: pointer;
+}
+.close-btn:hover,.snt:hover{
+    border: none;
+    padding: 7px;
+    border-radius: 50px;
+    transform: translateY(-23px);
+    outline: none;
+    cursor: pointer;
+}
+.close-btn:hover {
+    background-color: rgb(255, 50, 50);
+}
+
+.Warning_seuguro {
+    width: 100%;
+    font-family: 'SF Pro Display', SF Pro;
+    font-weight: 300;
+    background-color: rgba(0, 0, 0, 0.54); 
+    opacity: 1;
+    text-align: center;
+    position: fixed; 
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%) translateY(90vh); 
+    border: 0.5px solid rgba(204, 204, 204, 0.2); 
+    z-index: 99999; 
+    backdrop-filter: blur(15px); 
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    transition: max-height 0.5s ease-in-out, transform 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.warning-description {
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    text-align: left;
+    padding: 0 20px;
+}
+</style>
+
 <h1 class="h1">Hellfire Font</h1>
 <h2 style="text-align: center;"><span  class="Downloadfff"><a href="#h1">Download</a></span><span style="opacity: 0; visibility: none; color: #00000000;">fgregg</span><span class="Downloadffff"><a href="#youknow">Learn more</a></span></h2>
     <summary > <h1 class="h11">Navigation</h1></summary>
